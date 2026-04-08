@@ -1,25 +1,15 @@
-const profile = {
-  username: "Jacob",
-  playTime: 300,
+const sortByDescendingFriendCount = (users) => 
+  users.toSorted((a, b) => b.friends.length - a.friends.length);
 
-  changeUsername(newName) {
-    this.username = newName;
-  },
-
-  updatePlayTime(hours) {
-    this.playTime += hours;
-  },
-
-  getInfo() {
-    return `${this.username} has ${this.playTime} active hours!`;
-  }
-};
-
-// Перевірка роботи
-console.log(profile.getInfo()); // "Jacob has 300 active hours!"
-
-profile.changeUsername("Marco");
-console.log(profile.getInfo()); // "Marco has 300 active hours!"
-
-profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
+// Перевірка
+console.log(
+  sortByDescendingFriendCount([
+    { name: "Moore Hensley", friends: ["Sharron Pace"] },
+    { name: "Sharlene Bush", friends: ["Briana Decker", "Sharron Pace"] },
+    { name: "Ross Vazquez", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"] },
+    { name: "Elma Head", friends: ["Goldie Gentry", "Aisha Tran"] },
+    { name: "Carey Barr", friends: ["Jordan Sampson", "Eddie Strong"] },
+    { name: "Blackburn Dotson", friends: ["Jacklyn Lucas", "Linda Chapman"] },
+    { name: "Sheree Anthony", friends: ["Goldie Gentry", "Briana Decker"] }
+  ])
+);
